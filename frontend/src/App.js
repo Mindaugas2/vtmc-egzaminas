@@ -1,24 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { Link, Routes, Route } from "react-router-dom";
+import Register from './components/Register';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <header>
+        <Navbar
+          bg="light"
+          expand="lg"
         >
-          Learn React
-        </a>
+          <Container>
+            <Navbar.Brand
+              as={Link}
+              to="/"
+            >
+              Knygų rezervacijos programėlė
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link
+                  as={Link}
+                  to="/register "
+                >
+                  Registruotis
+                </Nav.Link>
+                <Nav.Link href="/log-in">Prisijungti</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </header>
-    </div>
+
+      <main>
+        <Container>
+          <Routes>
+            <Route
+              path="register"
+              element={<Register />}
+            />
+          </Routes>
+        </Container>
+      </main>
+    </>
   );
 }
 
