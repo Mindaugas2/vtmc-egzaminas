@@ -14,10 +14,21 @@ export default function Register() {
                     className='mb-3'
                     controlId="formFirstName"
                 >
-                    <Form.Label>First name</Form.Label>
+                    <Form.Label>Vardas</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder='Enter first name'
+                        placeholder='Įveskite savo vardą'
+                    />
+                </Form.Group>
+
+                <Form.Group
+                    className='mb-3'
+                    controlId="formLastName"
+                >
+                    <Form.Label>Pavardė</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder='Įveskite savo pavardę'
                     />
                 </Form.Group>
 
@@ -25,13 +36,13 @@ export default function Register() {
                     className="mb-3"
                     controlId="formBasicEmail"
                 >
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>El. paštas</Form.Label>
                     <Form.Control
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Įveskite savo el. pašto adresą"
                     />
                     <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
+                        Niekada su niekuo nesidalinsime jūsų el. pašto adresu.
                     </Form.Text>
                 </Form.Group>
 
@@ -39,10 +50,10 @@ export default function Register() {
                     className="mb-3"
                     controlId="formBasicPassword"
                 >
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Slaptažodis</Form.Label>
                     <Form.Control
                         type="password"
-                        placeholder="Password"
+                        placeholder="Įveskite slaptažodį"
                     />
                 </Form.Group>
 
@@ -50,7 +61,7 @@ export default function Register() {
                     variant="primary"
                     type="submit"
                 >
-                    Submit
+                    Pateikti
                 </Button>
             </Form>
         </Col>
