@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link, Routes, Route } from "react-router-dom";
 import Register from './components/Register';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
             <Route
               path="register"
               element={<Register />}
+            />
+
+            <Route
+              path='/'
+              element={<HomePage />}
             />
           </Routes>
         </Container>
