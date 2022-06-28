@@ -7,11 +7,11 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
+    const { register, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
     const navigate = useNavigate();
     const onSubmit = data => {
         AuthService.register(data)
-            .then(() => navigate("/login"));
+            .then(() => navigate("/success"));
     };
 
     return (

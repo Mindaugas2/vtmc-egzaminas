@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import { Link, Routes, Route } from "react-router-dom";
 import Register from './components/Register';
 import HomePage from './components/HomePage';
+import SuccessRegister from './components/SuccessRegister';
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
             <Route
               path='/'
               element={<HomePage />}
+            />
+
+            <Route
+              path='success'
+              element={<SuccessRegister />}
             />
           </Routes>
         </Container>
