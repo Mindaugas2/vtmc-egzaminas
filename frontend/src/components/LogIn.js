@@ -6,12 +6,16 @@ import { useForm } from "react-hook-form";
 import AuthService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 
-export default function Register() {
+export default function LogIn() {
     const { register, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
     const navigate = useNavigate();
+
     const onSubmit = data => {
-        AuthService.register(data)
-            .then(() => navigate("/success"));
+        AuthService.login(data.email, data.password)
+            .then(() => {
+                navigate("/profile");
+                window.location.reload();
+            });
     };
 
     return (
@@ -21,42 +25,15 @@ export default function Register() {
         >
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group
-                    className='mb-3'
-                    controlId="formFirstName"
-                >
-                    <Form.Label>Vardas</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder='Įveskite savo vardą'
-                        {...register("firstName")}
-                    />
-                </Form.Group>
-
-                <Form.Group
-                    className='mb-3'
-                    controlId="formLastName"
-                >
-                    <Form.Label>Pavardė</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder='Įveskite savo pavardę'
-                        {...register("lastName")}
-                    />
-                </Form.Group>
-
-                <Form.Group
                     className="mb-3"
                     controlId="formBasicEmail"
                 >
-                    <Form.Label>El. paštas</Form.Label>
+                    <Form.Label>Jūsų el. paštas</Form.Label>
                     <Form.Control
                         type="email"
-                        placeholder="Įveskite savo el. pašto adresą"
+                        placeholder="El. paštas"
                         {...register("email")}
                     />
-                    <Form.Text className="text-muted">
-                        Niekada su niekuo nesidalinsime jūsų el. pašto adresu.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group
@@ -75,7 +52,7 @@ export default function Register() {
                     variant="primary"
                     type="submit"
                 >
-                    Pateikti
+                    Prisijungti
                 </Button>
             </Form>
         </Col>
