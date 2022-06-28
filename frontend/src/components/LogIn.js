@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -9,13 +9,12 @@ import { useNavigate } from 'react-router-dom';
 export default function LogIn() {
     const { register, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
     const navigate = useNavigate();
-    const [render, setRender] = useState(false);
 
     const onSubmit = data => {
         AuthService.login(data.email, data.password)
             .then(() => {
                 navigate("/profile");
-                setRender(!render);
+                window.location.reload();
             });
     };
 
