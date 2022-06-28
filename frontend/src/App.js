@@ -6,6 +6,8 @@ import { Link, Routes, Route } from "react-router-dom";
 import Register from './components/Register';
 import HomePage from './components/HomePage';
 import SuccessRegister from './components/SuccessRegister';
+import LogIn from './components/LogIn';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -31,7 +33,13 @@ function App() {
                 >
                   Registruotis
                 </Nav.Link>
-                <Nav.Link href="/log-in">Prisijungti</Nav.Link>
+
+                <Nav.Link
+                  as={Link}
+                  to="/log-in"
+                >
+                  Prisijungti
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -47,6 +55,11 @@ function App() {
             />
 
             <Route
+              path='log-in'
+              element={<LogIn />}
+            />
+
+            <Route
               path='/'
               element={<HomePage />}
             />
@@ -54,6 +67,11 @@ function App() {
             <Route
               path='success'
               element={<SuccessRegister />}
+            />
+
+            <Route
+              path='profile'
+              element={<Profile />}
             />
           </Routes>
         </Container>
